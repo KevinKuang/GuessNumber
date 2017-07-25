@@ -25,16 +25,16 @@ public class Main {
 
     public static String  gameLoadUser () {
         String userName;
-        boolean firstInput = true;
         User gameUser;
         do{
-            if(!firstInput){
-                System.out.println("您输入的用户名为空");
-                firstInput = false;
-            }
-            System.out.println("请在输入下方用户名：");
+            System.out.println("请下方输入用户名：");
             userName = scanner.next();
-        }while (userName==null||"".equals(userName.trim()));
+            if(userName==null||"".equals(userName.trim())){
+                System.out.println("您输入的用户名为空");
+                continue;
+            }
+            break;
+        }while (true);
 
         if(userMap.containsKey(userName)){
             gameUser=userMap.get(userName);
